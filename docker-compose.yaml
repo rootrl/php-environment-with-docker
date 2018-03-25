@@ -9,7 +9,7 @@ services:
 
   volumes:
    - "$PWD/conf/nginx/conf.d:/etc/nginx/conf.d"
-   - "$PWD/www/public:/usr/share/nginx/html"
+   - "$PWD/www:/usr/share/nginx/html"
   ports:
    - "8888:80"
   
@@ -22,7 +22,7 @@ services:
    dockerfile: "Dockerfile.php"
   container_name: "oa-php-fpm"
   volumes:
-   - "$PWD/www/public:/var/www/html"
+   - "$PWD/www:/var/www/html"
 
  mysql:
   image: mysql
