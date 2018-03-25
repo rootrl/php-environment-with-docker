@@ -1,0 +1,46 @@
+version: '2'
+
+services:
+ nginx:
+  depends_on:
+   - "php"
+
+  image: "nginx"
+
+  volumes:
+   - "$PWD/conf/nginx/conf.d:/etc/nginx/conf.d"
+   - "$PWD/www/public:/usr/share/nginx/html"
+  ports:
+   - "8888:80"
+  
+  container_name: "oa-nginx"
+ 
+ php:
+  image: "oa-php-fpm"
+  build:  
+   context: .
+   dockerfile: "Dockerfile.php"
+  container_name: "oa-php-fpm"
+  volumes:
+   - "$PWD/www/public:/var/www/html"
+
+ mysql:
+  image: mysql
+  volumes:
+   - "$PWD/db_data:/var/lib/mysql"
+  environment:
+   MYSQL_ROOT_PASSWORD: root123
+   MYSQL_DATABASE: oa
+   MYSQL_USER: oa
+   MYSQL_PASSWORD: oa123
+  ports:
+   - "3308:3306"
+  container_name: "oa_mysql"
+
+ redis:
+  image: "redis"
+  ports:
+   - "6379:6379"
+  volumes:
+   - "$PWD/conf/redis/redis.conf:/usr/local/etc/redis/redis.conf"
+  container_name: "oa-redis"
