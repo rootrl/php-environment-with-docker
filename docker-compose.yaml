@@ -54,3 +54,4 @@ services:
 
 networks:
  oa-network:
+  driver: bridge
