@@ -14,7 +14,8 @@ RUN apt-get update --fix-missing && apt-get install -y \
     && docker-php-ext-install gd \
     && docker-php-ext-enable gd \
     && pecl install /pecl/redis-3.0.0.tgz \
-    && docker-php-ext-enable redis \
+    && pecl install swoole \
+    && docker-php-ext-enable redis swoole \
     && apt-get purge -y --auto-remove \
     && rm -rf /var/cache/apt/* \
     && rm -rf /var/lib/apt/lists/* \
