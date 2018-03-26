@@ -12,7 +12,8 @@ services:
    - "$PWD/www:/usr/share/nginx/html"
   ports:
    - "8888:80"
-  
+  networks:
+   - "oa-network"
   container_name: "oa-nginx"
  
  php:
@@ -20,6 +21,8 @@ services:
   build:  
    context: .
    dockerfile: "Dockerfile.php"
+  networks:
+   - "oa-network"
   container_name: "oa-php-fpm"
   volumes:
    - "$PWD/www:/var/www/html"
@@ -35,12 +38,20 @@ services:
    MYSQL_PASSWORD: oa123
   ports:
    - "3306:3306"
-  container_name: "oa_mysql"
+  networks:
+   - "oa-networks"
+  container_name: "oa-mysql"
 
  redis:
   image: "redis"
   ports:
    - "6379:6379"
+  networks:
+   - "oa-network"
   volumes:
    - "$PWD/conf/redis/redis.conf:/usr/local/etc/redis/redis.conf"
   container_name: "oa-redis"
+
+network_mode: "bridge"
+networks:
+ oa-network:
