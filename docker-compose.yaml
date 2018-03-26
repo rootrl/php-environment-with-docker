@@ -53,4 +53,4 @@ services:
   container_name: "oa-redis"
 
 networks:
- oa-network:
+ oa-network: "oa-network"
