@@ -13,7 +13,7 @@ services:
   ports:
    - "8888:80"
   networks:
-   - "oa-network"
+   - oa-network
   container_name: "oa-nginx"
  
  php:
@@ -22,7 +22,7 @@ services:
    context: .
    dockerfile: "Dockerfile.php"
   networks:
-   - "oa-network"
+   - oa-network
   container_name: "oa-php-fpm"
   volumes:
    - "$PWD/www:/var/www/html"
@@ -39,7 +39,7 @@ services:
   ports:
    - "3306:3306"
   networks:
-   - "oa-networks"
+   - oa-network
   container_name: "oa-mysql"
 
  redis:
@@ -47,7 +47,7 @@ services:
   ports:
    - "6379:6379"
   networks:
-   - "oa-network"
+   - oa-network
   volumes:
    - "$PWD/conf/redis/redis.conf:/usr/local/etc/redis/redis.conf"
   container_name: "oa-redis"
