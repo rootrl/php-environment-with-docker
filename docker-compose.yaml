@@ -52,6 +52,5 @@ services:
    - "$PWD/conf/redis/redis.conf:/usr/local/etc/redis/redis.conf"
   container_name: "oa-redis"
 
-network_mode: "bridge"
 networks:
  oa-network:
