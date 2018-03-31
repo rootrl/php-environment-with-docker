@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker-compose run php php "$@"
+docker-compose run --rm --name php-cli --no-deps -v "$PWD../www:/var/www/html" php php "$@"
