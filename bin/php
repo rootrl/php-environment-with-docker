@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-
-docker run -it --rm --name oa-php-cli -v "$PWD"/www:/var/www/script -w /var/www/script oa-php-fpm php "$@"
+docker-compose run php php "$@"
