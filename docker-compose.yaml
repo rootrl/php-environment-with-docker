@@ -15,6 +15,7 @@ services:
   networks:
    - oa-network
   container_name: "oa-nginx"
+  command: /bin/bash -c "mkdir -p /var/www && ln -s /usr/share/nginx/html /var/www && nginx -g 'daemon off;'"
  
  php:
   image: "oa-php-fpm"
