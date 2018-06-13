@@ -12,7 +12,7 @@
 ### USAGE
 #### Example for using laravel:
 
-step1: install laravel with compser:
+step1: install laravel with composer:
 
 ```bash
 ./bin/composer create-project --prefer-dist laravel/laravel www
