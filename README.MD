@@ -30,3 +30,4 @@ For using laravel artisan or other script just following the command:
 ```bash
 ./bin/php artisan
 ```
+And you may change your mysql account item in .env file，The mysql account info sees in docker-compose.yaml
