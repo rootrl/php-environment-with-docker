@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-
+docker-compose rm -sf
 docker-compose up -d
-echo "\r\n ======== status ===========  \r\n"
+echo -e "\n ======== status ===========  \n"
 docker-compose ps
-echo "\r\n ======== images ===========  \r\n"
-docker-compose images
